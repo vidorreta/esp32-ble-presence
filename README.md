@@ -1,4 +1,4 @@
-![Detector de presencia ESP32 BLE](assets/cover.png)
+![Detector de presencia ESP32 BLE](/cover.png)
 
 # ESP32 BLE Presence Detector for Home Assistant
 
