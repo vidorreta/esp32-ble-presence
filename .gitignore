@@ -1,0 +1,26 @@
+# General
+.DS_Store
+Thumbs.db
+*.log
+
+# VSCode
+.vscode/
+.vscode-*
+*.code-workspace
+
+# PlatformIO
+.pio/
+.piolibdeps/
+.ccls-cache/
+.clangd/
+cmake-build-*/
+
+# Arduino
+build/
+*.elf
+*.bin
+*.hex
+
+# Dependencias/artefactos
+libdeps/
+.cache/
