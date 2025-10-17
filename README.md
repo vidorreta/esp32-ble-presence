@@ -26,9 +26,10 @@ Este proyecto consiste en un detector de presencia basado en ESP32 utilizando la
 esp32-ble-presence/
 ├── src/
 │   └── main.cpp         # Código principal del firmware
-├── assets/
-│   └── cover.png        # Imagen de portada para la documentación
-├── .gitignore
+  ├── cover.png        # Imagen de portada para la documentación
+├── demo-mqtt.png    # Captura de interfaz en Home Assistant
+├── ├── LICENSE          # Licencia MIT
+.gitignore
 └── README.md
 ```
 
@@ -39,11 +40,16 @@ esp32-ble-presence/
 3. Carga el código en tu ESP32.
 4. Registra las direcciones MAC o UUIDs de los dispositivos que deseas detectar.
 5. Conecta Home Assistant a tu broker MQTT para visualizar los cambios de presencia.
+## Manual rápido de uso
 
-## Contribuciones
+1. **Compilar y cargar**: Clona este repositorio y abre el directorio en tu IDE (Arduino IDE o PlatformIO). Compila y sube el firmware al ESP32.
+2. **Configurar por primera vez**: Al arrancar por primera vez, el ESP32 crea un punto de acceso Wi‑Fi (`ESP32‑Setup‑XXXXXX`, contraseña `ConfiguraESP`). Conéctate a esa red y visita `http://192.168.1.1` para introducir tu SSID y clave de Wi‑Fi, así como los datos de tu servidor MQTT (host, puerto, usuario y contraseña). Guarda y reinicia.
+3. **Integración en Home Assistant**: Al reiniciar, el dispositivo se conectará automáticamente a tu red y publicará estados a través de MQTT. Home Assistant detectará automáticamente la entidad de presencia y varios números configurables. Desde el panel de "Dispositivos y servicios" podrás ajustar umbrales RSSI, ventana de detección y otros parámetros.
+4. **Reset y ajustes**: Para restablecer la configuración (Wi‑Fi/MQTT/parámetros) mantén pulsado el botón BOOT (GPIO0) durante 10 segundos. También puedes ajustar parámetros en caliente enviando comandos MQTT a los topics `home/esp32-airtag-1/params/...`.
 
-Las contribuciones son bienvenidas. Puedes abrir issues para reportar problemas o sugerir mejoras, y enviar pull requests con tu código. 
+A continuación se muestra un ejemplo de cómo se integra y configura en Home Assistant:
 
+![Demo Home Assistant](demo-mqtt.png)
 ## Licencia
 
 Este proyecto se distribuye bajo la licencia MIT (consulta el archivo `LICENSE`).
